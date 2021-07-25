@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/pages/NotFound/PageNotFound.module.css"],"names":[],"mappings":"AAAA,2BACE,YAAa,CACb,iBACF","file":"9.2077e331.chunk.css","sourcesContent":[".error {\r\n  padding: 20px;\r\n  text-align: center;\r\n}\r\n"]}
