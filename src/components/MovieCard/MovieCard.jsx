@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import * as movieApi from 'apiService/apiService';
 import s from './MovieCard.module.css';
 
@@ -21,3 +22,7 @@ export default function MovieCard({ movie }) {
     </div>
   );
 }
+
+MovieCard.propTypes = {
+  movie: PropTypes.object.isRequired,
+};

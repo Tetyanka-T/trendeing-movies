@@ -1,0 +1,36 @@
+.SearchForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.button {
+  display: inline-flex;
+  margin: 0 4px;
+  padding: 8px 24px;
+  border: 0;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 14px;
+  font-family: inherit;
+  background-color: #2196f3;
+}
+
+.SearchForm_input {
+  display: inline-block;
+  width: 200px;
+  font: inherit;
+  font-size: 20px;
+
+  outline: none;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.SearchForm_input::placeholder {
+  font: inherit;
+  font-size: 18px;
+}

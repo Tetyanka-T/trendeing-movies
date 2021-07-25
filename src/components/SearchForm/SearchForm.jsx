@@ -1,3 +1,5 @@
+import s from './SearchForm.module.css';
+
 export default function SearchForm({ onSearch }) {
   const handleSearch = e => {
     e.preventDefault();
@@ -5,15 +7,18 @@ export default function SearchForm({ onSearch }) {
   };
 
   return (
-    <form onSubmit={handleSearch}>
+    <form onSubmit={handleSearch} className={s.SearchForm}>
+      <button type="submit" className={s.button}>
+        Search
+      </button>
       <input
+        className={s.SearchForm_input}
         type="text"
         name="searchImage"
         autoComplete="off"
         autoFocus
         placeholder="Search movie"
       />
-      <button type="submit">Search</button>
     </form>
   );
 }

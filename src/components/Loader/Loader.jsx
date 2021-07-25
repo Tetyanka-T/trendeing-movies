@@ -1,17 +1,10 @@
-import Container from 'components/Container/Container';
-import Loader from 'react-spinners/BeatLoader';
-import { css } from '@emotion/react';
+import Loader from 'react-loader-spinner';
+import s from './Loader.module.css';
 
-const override = css`
-  display: block;
-  margin: 0 auto;
-  border-color: red;
-`;
-
-export default function Spinner() {
+export const Spinner = () => {
   return (
-    <Container>
-      <Loader css={override} />
-    </Container>
+    <div className={s.spin}>
+      <Loader type="ThreeDots" color="#2196f3" width="80" height="80" />
+    </div>
   );
-}
+};

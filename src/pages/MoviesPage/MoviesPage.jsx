@@ -1,20 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation, useHistory } from 'react-router-dom';
 
+import { toast } from 'react-hot-toast';
 import * as movieApi from 'apiService/apiService';
-import Spinner from 'components/Loader/Loader';
+import { Spinner } from 'components/Loader/Loader';
 import Container from 'components/Container/Container';
 import SearchForm from 'components/SearchForm/SearchForm';
-// import Button from 'components/Button/Button';
 import MovieCard from 'components/MovieCard/MovieCard';
 import s from './MoviesPage.module.css';
 
-// import MovieDetailsPage from 'pages/MovieDetailsPage/MovieDetailsPage';
-
 export default function MoviePage() {
-  // const { url } = useRouteMatch;
-  // const { movieId } = useParams();
-
   const history = useHistory();
   const location = useLocation();
 
@@ -41,7 +36,7 @@ export default function MoviePage() {
         setReqStatus('resolved');
       } catch (err) {
         setReqStatus('rejected');
-        // toast.error('Not found');
+        toast.error('Not found');
       }
     }
     onFetchMovie();
@@ -56,6 +51,7 @@ export default function MoviePage() {
   const handleSearchChange = searchMovie => {
     reset();
     setSearchMovie(searchMovie);
+
     history.push({
       ...location,
       search: `query=${searchMovie}`,
@@ -68,9 +64,6 @@ export default function MoviePage() {
     setPage(1);
     setReqStatus('idle');
   };
-  // const onLoadMore = () => {
-  //   setPage(prevState => prevState + 1);
-  // };
 
   return (
     <Container>
@@ -94,8 +87,6 @@ export default function MoviePage() {
           ))}
         </ul>
       )}
-
-      {/* {movies.length > 0 && <Button onClick={onLoadMore} />} */}
     </Container>
   );
 }

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import * as movieApi from 'apiService/apiService';
 import s from './MovieDetailsInfo.module.css';
 
@@ -15,15 +16,25 @@ export default function MovieDetailsInfo({ movie }) {
         <h1>
           {movie.title} ({releaseYear})
         </h1>
-        <p>User score: {movie.vote_average}</p>
-        <p>Overview: {movie.overview}</p>
-        <ul>
-          Genres:
+        <p>
+          <span className={s.text}> User score:</span> {movie.vote_average}
+        </p>
+        <p>
+          <span className={s.text}> Overview:</span> {movie.overview}
+        </p>
+        <ul className={s.list}>
+          <span className={s.text}>Genres:</span>
           {movie.genres.map(genre => (
-            <li key={genre.id}>{genre.name}</li>
+            <li className={s.genre_item} key={genre.id}>
+              {genre.name}
+            </li>
           ))}
         </ul>
       </div>
     </div>
   );
 }
+
+MovieDetailsInfo.propTypes = {
+  movie: PropTypes.object.isRequired,
+};

@@ -6,3 +6,12 @@
 .discr {
   margin-left: 20px;
 }
+
+.text {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.list {
+  list-style: none;
+}

@@ -3,17 +3,17 @@ import {
   Route,
   Switch,
   useRouteMatch,
-  NavLink,
   useParams,
   useLocation,
   useHistory,
 } from 'react-router-dom';
-// import Cast from 'components/Cast/Cast';
-// import Reviews from 'components/Reviews/Reviews';
+
+import { toast } from 'react-hot-toast';
 import * as movieApi from 'apiService/apiService';
-import Spinner from 'components/Loader/Loader';
+import { Spinner } from 'components/Loader/Loader';
 import MovieDetailsInfo from 'components/MovieDetailsInfo/MovieDetailsInfo';
 import MovieNavigation from 'components/MovieNavigation/MovieNavigation';
+import s from './MovieDetailsPage.module.css';
 
 const Cast = lazy(() =>
   import('components/Cast/Cast.jsx' /* webpackChankName: "cast" */),
@@ -28,7 +28,7 @@ export default function MovieDetailsPage() {
   const history = useHistory();
   const location = useLocation();
 
-  const { path, url } = useRouteMatch();
+  const { path } = useRouteMatch();
   const [movie, setMovie] = useState(null);
   const [reqStatus, setReqStatus] = useState('idle');
 
@@ -45,7 +45,7 @@ export default function MovieDetailsPage() {
         setReqStatus('resolved');
       } catch (err) {
         setReqStatus('rejected');
-        // toast.error('Not found');
+        toast.error('Not found');
       }
     }
     onFetchMovie();
@@ -58,23 +58,12 @@ export default function MovieDetailsPage() {
   return (
     <>
       {reqStatus === 'pending' && <Spinner />}
-      <button type="button" onClick={onGoback}>
+      <button type="button" onClick={onGoback} className={s.button}>
         Back
       </button>
       {movie && <MovieDetailsInfo movie={movie} />}
 
       {movie && <MovieNavigation />}
-
-      {/* <h2>Additional information</h2>
-      <ul>
-        <NavLink to={`${url}/cast`}>
-          <Cast />
-        </NavLink>
-
-        <NavLink to={`${url}/reviews`}>
-          <Reviews />
-        </NavLink>
-      </ul> */}
 
       <Suspense fallback={<Spinner />}>
         <Switch>
