@@ -1,2 +1,0 @@
-(this["webpackJsonpgoit-react-hw-05-movies"]=this["webpackJsonpgoit-react-hw-05-movies"]||[]).push([[9],{100:function(e,r,t){e.exports={error:"PageNotFound_error__3diPy"}},104:function(e,r,t){"use strict";t.r(r),t.d(r,"default",(function(){return i}));var n=t(100),o=t.n(n),s=t(1);function i(){return Object(s.jsx)(s.Fragment,{children:Object(s.jsxs)("h1",{className:o.a.error,children:["Error 404: Page Not Found",Object(s.jsx)("span",{role:"img","aria-label":"sheep",children:"\ud83d\ude2e"})]})})}}}]);
-//# sourceMappingURL=9.282b32f6.chunk.js.map
