@@ -12,7 +12,7 @@ import s from './MoviesPage.module.css';
 export default function MoviePage() {
   const history = useHistory();
   const location = useLocation();
-
+  console.log(location);
   const [searchMovie, setSearchMovie] = useState(null);
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
@@ -78,7 +78,7 @@ export default function MoviePage() {
                 className={s.link}
                 to={{
                   pathname: `/movies/${movie.id}`,
-                  state: { from: location },
+                  state: { params: `` },
                 }}
               >
                 <MovieCard movie={movie} />

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import s from './SearchForm.module.css';
 
 export default function SearchForm({ onSearch }) {
@@ -22,3 +23,7 @@ export default function SearchForm({ onSearch }) {
     </form>
   );
 }
+
+SearchForm.propTypes = {
+  onSearch: PropTypes.func.isRequired,
+};

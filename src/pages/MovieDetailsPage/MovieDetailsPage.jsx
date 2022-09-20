@@ -4,13 +4,13 @@ import {
   Switch,
   useRouteMatch,
   useParams,
-  useLocation,
   useHistory,
 } from 'react-router-dom';
 
 import { toast } from 'react-hot-toast';
 import * as movieApi from 'apiService/apiService';
 import { Spinner } from 'components/Loader/Loader';
+import useGoBack from 'hooks/useGoBack';
 import MovieDetailsInfo from 'components/MovieDetailsInfo/MovieDetailsInfo';
 import MovieNavigation from 'components/MovieNavigation/MovieNavigation';
 import s from './MovieDetailsPage.module.css';
@@ -26,9 +26,10 @@ export default function MovieDetailsPage() {
   const { movieId } = useParams();
 
   const history = useHistory();
-  const location = useLocation();
 
   const { path } = useRouteMatch();
+  const { goBack } = useGoBack();
+
   const [movie, setMovie] = useState(null);
   const [reqStatus, setReqStatus] = useState('idle');
 
@@ -39,6 +40,8 @@ export default function MovieDetailsPage() {
         const movie = await movieApi.fetchMovieId(movieId);
 
         if (!movie) {
+          history.push('/');
+
           throw new Error();
         }
         setMovie(movie);
@@ -49,16 +52,16 @@ export default function MovieDetailsPage() {
       }
     }
     onFetchMovie();
-  }, [movieId]);
+  }, [history, movieId]);
 
-  const onGoback = () => {
-    history.push(location?.state?.from ?? '/');
-  };
+  // const onGoback = () => {
+  //   history.push(location?.state?.from ?? '/');
+  // };
 
   return (
     <>
       {reqStatus === 'pending' && <Spinner />}
-      <button type="button" onClick={onGoback} className={s.button}>
+      <button type="button" onClick={goBack} className={s.button}>
         Back
       </button>
       {movie && <MovieDetailsInfo movie={movie} />}

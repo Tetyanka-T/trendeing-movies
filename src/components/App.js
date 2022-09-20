@@ -1,13 +1,9 @@
 import { lazy, Suspense } from 'react';
-import { Switch, Route } from 'react-router';
+import { Switch, Route, Redirect } from 'react-router';
 import { Toaster } from 'react-hot-toast';
 import Container from './Container/Container';
 import Header from './Header/Header';
 import { Spinner } from './Loader/Loader';
-// import PageNotFound from 'pages/NotFound/PageNotFound';
-// import HomePage from 'pages/HomePage/HomePage';
-// import MoviePage from 'pages/MoviesPage/MoviesPage';
-// import MovieDetailsPage from 'pages/MovieDetailsPage/MovieDetailsPage';
 
 const HomePage = lazy(() =>
   import('pages/HomePage/HomePage.jsx' /* webpackChankName: "home-page" */),
@@ -20,12 +16,6 @@ const MoviePage = lazy(() =>
 const MovieDetailsPage = lazy(() =>
   import(
     'pages/MovieDetailsPage/MovieDetailsPage.jsx' /* webpackChankName: "movie-details-page" */
-  ),
-);
-
-const PageNotFound = lazy(() =>
-  import(
-    'pages/NotFound/PageNotFound' /* webpackChankName: "page-not-found" */
   ),
 );
 
@@ -48,9 +38,7 @@ function App() {
             <MovieDetailsPage />
           </Route>
 
-          <Route path="/">
-            <PageNotFound />
-          </Route>
+          <Redirect to="/" />
         </Switch>
       </Suspense>
     </Container>
