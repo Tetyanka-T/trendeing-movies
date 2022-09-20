@@ -10,10 +10,9 @@ import {
 import { toast } from 'react-hot-toast';
 import * as movieApi from 'apiService/apiService';
 import { Spinner } from 'components/Loader/Loader';
-import useGoBack from 'hooks/useGoBack';
+import GoBack from 'components/GoBack/GoBack';
 import MovieDetailsInfo from 'components/MovieDetailsInfo/MovieDetailsInfo';
 import MovieNavigation from 'components/MovieNavigation/MovieNavigation';
-import s from './MovieDetailsPage.module.css';
 
 const Cast = lazy(() =>
   import('components/Cast/Cast.jsx' /* webpackChankName: "cast" */),
@@ -28,7 +27,6 @@ export default function MovieDetailsPage() {
   const history = useHistory();
 
   const { path } = useRouteMatch();
-  const { goBack } = useGoBack();
 
   const [movie, setMovie] = useState(null);
   const [reqStatus, setReqStatus] = useState('idle');
@@ -57,9 +55,7 @@ export default function MovieDetailsPage() {
   return (
     <>
       {reqStatus === 'pending' && <Spinner />}
-      <button type="button" onClick={goBack} className={s.button}>
-        Back
-      </button>
+      <GoBack />
       {movie && <MovieDetailsInfo movie={movie} />}
 
       {movie && <MovieNavigation />}

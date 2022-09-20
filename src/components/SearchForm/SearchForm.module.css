@@ -5,6 +5,7 @@
   background-color: #fff;
   border-radius: 3px;
   overflow: hidden;
+  margin-bottom: 20px;
 }
 
 .button {
@@ -21,7 +22,7 @@
 
 .SearchForm_input {
   display: inline-block;
-  width: 200px;
+  width: 150px;
   font: inherit;
   font-size: 20px;
 

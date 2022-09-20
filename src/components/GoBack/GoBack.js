@@ -1,7 +1,8 @@
 import { useRef, useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
+import s from './GoBack.module.css';
 
-const useGoBack = () => {
+const ComeBackButton = () => {
   const history = useHistory();
   const location = useLocation();
   const routerState = useRef(null);
@@ -17,7 +18,15 @@ const useGoBack = () => {
     history.push(url);
   };
 
-  return goBack;
+  return (
+    <button
+      type="button"
+      className={s.button_comeBack}
+      onClick={() => goBack()}
+    >
+      Back
+    </button>
+  );
 };
 
-export default useGoBack;
+export default ComeBackButton;

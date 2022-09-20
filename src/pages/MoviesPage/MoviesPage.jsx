@@ -7,7 +7,7 @@ import { Spinner } from 'components/Loader/Loader';
 import Container from 'components/Container/Container';
 import SearchForm from 'components/SearchForm/SearchForm';
 import MovieCard from 'components/MovieCard/MovieCard';
-import s from './MoviesPage.module.css';
+import s from '../HomePage/HomePage.module.css';
 
 export default function MoviePage() {
   const history = useHistory();
@@ -75,7 +75,6 @@ export default function MoviePage() {
           {movies.map(movie => (
             <li key={movie.id} className={s.card__item}>
               <Link
-                className={s.link}
                 to={{
                   pathname: `/movies/${movie.id}`,
                   state: { params: `` },

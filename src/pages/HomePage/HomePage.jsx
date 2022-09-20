@@ -19,7 +19,7 @@ export default function HomePage() {
         <ul className={s.gallery}>
           {movies.map(movie => (
             <li key={movie.id} className={s.card__item}>
-              <Link className={s.link} to={`movies/${movie.id}`}>
+              <Link to={`movies/${movie.id}`}>
                 <MovieCard movie={movie} />
               </Link>
             </li>
