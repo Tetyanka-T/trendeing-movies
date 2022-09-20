@@ -9,7 +9,7 @@ export default function MovieDetailsInfo({ movie }) {
       <img
         src={movieApi.poster + movie.poster_path}
         alt={movie.title}
-        width="280"
+        width="290"
         height="402"
       />
       <div className={s.discr}>
@@ -22,7 +22,7 @@ export default function MovieDetailsInfo({ movie }) {
         <p>
           <span className={s.text}> Overview:</span> {movie.overview}
         </p>
-        <ul className={s.list}>
+        <ul className={s.genre_list}>
           <span className={s.text}>Genres:</span>
           {movie.genres.map(genre => (
             <li className={s.genre_item} key={genre.id}>

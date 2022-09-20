@@ -1,5 +1,4 @@
 .card {
-  display: flex;
   margin-top: 15px;
 }
 
@@ -12,6 +11,8 @@
   font-weight: 700;
 }
 
-.list {
-  list-style: none;
+@media screen and (min-width: 768px) {
+  .card {
+    display: flex;
+  }
 }

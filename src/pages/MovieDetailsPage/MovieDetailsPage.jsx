@@ -54,10 +54,6 @@ export default function MovieDetailsPage() {
     onFetchMovie();
   }, [history, movieId]);
 
-  // const onGoback = () => {
-  //   history.push(location?.state?.from ?? '/');
-  // };
-
   return (
     <>
       {reqStatus === 'pending' && <Spinner />}
